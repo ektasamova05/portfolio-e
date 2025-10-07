@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ekta Samova — Web Developer & Designer</title>
+  <meta name="description" content="Portfolio of Ekta Samova — Web Developer & Designer. HTML, CSS, JavaScript, Python, MongoDB." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#0f1720; --muted:#9aa4b2; --accent:#7c5cff; --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02); --success:#4ade80; --danger:#fb7185;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05060a 0%, #0b0f14 100%);color:#e6eef8}
+    a{color:var(--accent);text-decoration:none}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(11,15,20,0.6), rgba(11,15,20,0.2));border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3ec8c8);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b0f14}
+    nav ul{display:flex;gap:16px;align-items:center;list-style:none;padding:0;margin:0}
+    .btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#5a9bff);color:#071024;font-weight:600;border:none;cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:60px 0}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p.lead{color:var(--muted);margin:0 0 20px;font-size:16px}
+    .cta{display:flex;gap:12px}
+    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:14px}
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .skill{background:#071023;padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    /* Projects */
+    .projects{margin:48px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg,#071023, #0b1220);border:1px solid rgba(255,255,255,0.03);min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+    .project h3{margin:0 0 6px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+
+    /* Design gallery */
+    .designs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .mock{height:220px;border-radius:12px;background:linear-gradient(180deg,#081021, #071223);display:flex;align-items:center;justify-content:center;color:var(--muted);border:1px dashed rgba(255,255,255,0.03)}
+
+    footer{padding:28px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)} .projects{margin-top:28px}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr} .designs{grid-template-columns:1fr} .logo{width:38px;height:38px} .hero h1{font-size:28px}}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .center{display:flex;align-items:center;justify-content:center}
+
+    /* subtle reveal animation */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* contact */
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:inherit;resize:vertical}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">ES</div>
+        <div>
+          <div style="font-weight:700">Ekta Samova</div>
+          <div style="font-size:12px;color:var(--muted)">Web Developer & Designer</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#designs">Design</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn" href="#contact">Hire Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p style="color:var(--accent);font-weight:700;margin:0">Hi, I'm</p>
+        <h1 class="reveal">Ekta Samova — Web Developer & Designer</h1>
+        <p class="lead reveal">I build responsive, accessible, and beautifully designed web experiences. I combine front-end development with visual design to create polished products.</p>
+        <div class="cta reveal">
+          <a class="btn" href="#projects">See Projects</a>
+          <a style="padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted)" href="#contact">Contact</a>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;">
+            <div>
+              <div style="font-weight:700">Skills</div>
+              <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+                <span class="skill">MongoDB</span>
+                <span class="skill">Figma</span>
+              </div>
+            </div>
+            <div style="text-align:right;color:var(--muted)">
+              <div style="font-weight:700">Available for Freelance</div>
+              <div style="font-size:13px">Open to remote projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card center reveal">
+        <div style="text-align:center">
+          <div style="width:120px;height:120px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#4ad1ff);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#071024">ES</div>
+          <h3 style="margin:12px 0 6px">Let's build something</h3>
+          <p class="muted" style="font-size:14px;margin:0">I design UI and develop frontend & backend parts of small to medium-sized apps.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="reveal" style="margin-top:8px">
+      <div class="card">
+        <h2>About Me</h2>
+        <p class="muted">I am a passionate web developer and designer who loves turning ideas into delightful user experiences. I work with HTML, CSS, JavaScript for frontend and use Python + MongoDB for backend/data when needed. I focus on writing clean code, accessible interfaces and polished visuals.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <h2>Selected Projects</h2>
+        <div class="muted">5 projects — Web Development & Design</div>
+      </div>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="project reveal">
+          <div>
+            <h3>Portfolio Template (This Site)</h3>
+            <p class="muted">A responsive personal portfolio built with HTML, CSS & JavaScript. Features project gallery, contact form and dark design.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openProject(event,1)">Details</a>
+              <a style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#">Live</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project reveal">
+          <div>
+            <h3>UI Case Study — E‑Commerce</h3>
+            <p class="muted">Design system and high-fidelity UI prototype for an e‑commerce flow — product pages, cart and checkout interactions.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="tags">
+              <span class="tag">Figma</span>
+              <span class="tag">Design</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openProject(event,2)">Details</a>
+              <a style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#">Prototype</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project reveal">
+          <div>
+            <h3>Task Manager App</h3>
+            <p class="muted">A small MERN-like project with frontend JS and a Python backend (Flask) storing tasks in MongoDB.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="tags">
+              <span class="tag">JS</span>
+              <span class="tag">Python</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openProject(event,3)">Details</a>
+              <a style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#">Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project reveal">
+          <div>
+            <h3>Landing — SaaS Product</h3>
+            <p class="muted">Conversion-focused landing page with animations, responsive hero, and pricing section.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openProject(event,4)">Details</a>
+              <a style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#">Live</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project reveal">
+          <div>
+            <h3>Accessibility Audit</h3>
+            <p class="muted">A report + fixes for an existing site to improve accessibility, keyboard nav and contrast.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div class="tags">
+              <span class="tag">Audit</span>
+              <span class="tag">WCAG</span>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openProject(event,5)">Details</a>
+              <a style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#">Report</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="designs" style="margin-top:20px">
+      <h2>Design Work</h2>
+      <p class="muted">Selected UI mockups and high-fidelity screens.</p>
+      <div class="designs" style="margin-top:12px">
+        <div class="mock reveal">Mockup / Screenshot 1</div>
+        <div class="mock reveal">Mockup / Screenshot 2</div>
+        <div class="mock reveal">Mockup / Screenshot 3</div>
+        <div class="mock reveal">Mockup / Screenshot 4</div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:40px">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="muted">Want to work together? Send a message or email me — <a href="mailto:ektasamova2@gmail.com">ektasamova2@gmail.com</a></p>
+        <form class="contact-form" onsubmit="sendMessage(event)">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <textarea id="message" rows="4" placeholder="Your message" required></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn" type="submit">Send Message</button>
+            <div id="status" class="muted" style="font-size:13px"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:30px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <strong>Ekta Samova</strong> — Web Developer & Designer</div>
+        <div class="muted">Built with ❤️ • HTML • CSS • JavaScript</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Project modal -->
+  <div id="projModal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,12,0.6);z-index:80">
+    <div style="width:min(900px,96%);background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);max-height:80vh;overflow:auto">
+      <button onclick="closeModal()" style="float:right;background:transparent;border:none;color:var(--muted);font-weight:700">Close ✕</button>
+      <div id="projContent" style="clear:both"></div>
+    </div>
+  </div>
+
+  <script>
+  
+    const toReveal = Array.from(document.querySelectorAll('.reveal'));
+    const onScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      toReveal.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < trigger) el.classList.add('show');
+      })
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
+
+    const projects = {
+      1: {title:'Portfolio Template', body:'This portfolio (the current site) is a single-page responsive site built with semantic HTML, modern CSS and lightweight JS for interactions. Replace the placeholder content, add screenshots and update links to your live demos and GitHub repos.'},
+      2: {title:'UI Case Study — E-Commerce', body:'High-fidelity UI created in Figma. Delivered a design system, component library and interactive prototype for a sample e-commerce flow.'},
+      3: {title:'Task Manager App', body:'A task manager that persists data to MongoDB via a Python (Flask/FastAPI) backend. Includes authentication, CRUD operations and responsive UI.'},
+      4: {title:'Landing — SaaS Product', body:'Conversion-focused landing page with hero, features, testimonials and pricing. Built with accessibility and performance in mind.'},
+      5: {title:'Accessibility Audit', body:'An accessibility assessment that lists issues found, severity, and concrete fixes to improve keyboard navigation, ARIA attributes and color contrast.'}
+    };
+
+    function openProject(e,id){ e.preventDefault(); const modal = document.getElementById('projModal'); const content = document.getElementById('projContent'); content.innerHTML = `<h2>${projects[id].title}</h2><p class=\"muted\">${projects[id].body}</p><p><strong>Tech:</strong> HTML, CSS, JavaScript, Python, MongoDB</p><p><strong>Notes:</strong> Replace this with project-specific description, screenshots and links to repo/live demo.</p>`; modal.style.display='flex'; }
+    function closeModal(){ document.getElementById('projModal').style.display='none'; }
+
+    function sendMessage(e){ e.preventDefault(); const name = document.getElementById('name').value; const email = document.getElementById('email').value; const message = document.getElementById('message').value; const status = document.getElementById('status'); status.textContent='Sending...'; setTimeout(()=>{ status.textContent='Thanks '+name+' — I will reply at '+email; document.getElementById('name').value=''; document.getElementById('email').value=''; document.getElementById('message').value=''; },900); }
+
+
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+  </script>
+</body>
+</html>
